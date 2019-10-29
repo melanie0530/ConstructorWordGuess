@@ -25,3 +25,43 @@ word.prototype.convertWord = function () {
             letterArray.push(this.letterObj)
         }
     }
+    for (var i = 0; i < letterArray.length; i++) {
+        Letter.prototype.input = letterArray[i].input
+        Letter.prototype.character = letterArray[i].character
+        Letter.prototype.check()
+        returnLetters();
+        if (Letter.prototype.guessed === true) {
+            letArr2.push(Letter.prototype.character)
+            correctLog.push(Letter.prototype.character)
+        } else {
+            letArr2.push(Letter.prototype.placeholder)
+        }
+    }
+    returnLetters();
+    isCompletefunc();
+    emptyLetter();
+}
+function returnLetters() {
+    for (var i = 0; i < correctLog.length; i++) {
+        if (correctLog[i] === Letter.prototype.character) {
+            Letter.prototype.guessed = true
+        }
+    }
+}
+function emptyLetter() {
+    for (var i = 0; i < currentWord.length; i++) {
+        compareArr = currentWord[i].split('')
+    }
+    letterArray = [];
+    letArr2 = [];
+}
+word.prototype.clearLog = function () {
+    correctLog = [];
+}
+function isCompletefunc() {
+    for (var i = 0; i < compareArr.length; i++) {
+        finalCheck1.push(compareArr[i])
+        finalCheck2.push(letArr2[i])
+    }
+    finalCheck()
+}

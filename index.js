@@ -8,3 +8,5 @@ if (count === 0) {
     randomWord();
     startApp();
 }
+function randomWord() {
+    

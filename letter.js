@@ -5,3 +5,5 @@ const Letter = function (input, character, guessed, check, placeholder) {
     this.check = check
     this.placeholder = placeholder
 };
+Letter.prototype.placeholder = "_"
+Letter.prototype.check = function () {

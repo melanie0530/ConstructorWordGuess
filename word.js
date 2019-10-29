@@ -65,3 +65,24 @@ function isCompletefunc() {
     }
     finalCheck()
 }
+function finalCheck() {
+    console.log('             ')
+    console.log(letArr2)
+    for (var i = 0; i < finalCheck2.length; i++) {
+        if (finalCheck2[i] === finalCheck1[i]) {
+            complete++
+        }
+    }
+    if (complete > 0) {
+        console.log('')
+
+        console.log('Correct: ' + complete + '/' + letArr2.length)
+    }
+    if (complete === finalCheck1.length && complete > 0) {
+        word.prototype.isComplete = true
+    }
+    finalCheck1 = []
+    finalCheck2 = []
+    complete = 0
+}
+module.exports = word

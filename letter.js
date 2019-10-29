@@ -7,3 +7,10 @@ const Letter = function (input, character, guessed, check, placeholder) {
 };
 Letter.prototype.placeholder = "_"
 Letter.prototype.check = function () {
+    if (this.input === this.character) {
+        this.guessed = true;
+    } else {
+        this.guessed = false;
+    }
+}
+module.exports = Letter

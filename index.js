@@ -32,3 +32,50 @@ function randomWord() {
         Word.prototype.currentWord.shift();
     }
 }
+function startApp() {
+    count++
+    guessesLeft--
+    console.log('  ')
+
+    console.log('Guesses left: ' + guessesLeft)
+    console.log('  ')
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: "guess",
+            message: "Guess a letter: "
+        }
+    ]).then(answers => {
+        Word.prototype.input = answers.guess
+        Word.prototype.convertWord()
+        answerLog.push(answers.guess)
+        Word.prototype.answerLogWord = answerLog
+    }).then(func => {
+        if (count === 13 || Word.prototype.isComplete === true) {
+            if (count === 12) {
+
+                console.log('  ')
+
+
+                console.log('Better Luck Next Time!!')
+            } else if (Word.prototype.isComplete === true) {
+                console.log('  ')
+
+                console.log('Good Guess! ')
+            }
+            console.log('  ')
+
+            console.log('Try Again !!!')
+            randomWord();
+            Word.prototype.clearLog();
+            guessesLeft = 13;
+            count = 0
+            Word.prototype.isComplete = false
+        }
+    }).then(func => {
+        if (count === 13 || Word.prototype.isComplete === true || count < 13) {
+            startApp();
+        }
+    })
+}
